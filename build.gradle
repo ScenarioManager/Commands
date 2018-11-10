@@ -27,7 +27,7 @@ repositories {
 dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
     compileOnly "org.spigotmc:spigot-api:1.8-R0.1-SNAPSHOT"
-    compileOnly "me.calebbassham:ScenarioManager:0.7.2"
+    compileOnly "me.calebbassham:ScenarioManager:0.8.4"
 }
 
 compileKotlin {

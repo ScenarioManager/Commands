@@ -74,7 +74,7 @@ class ScenarioManagerCmd(private val scenarioManager: SimpleScenarioManager, pri
             return true
         }
 
-        scenario.generateWorld(world)
+        scenario.updateWorld(world)
             .whenComplete { _, exception ->
                 if (exception != null) {
                     sender.sendMessage(Messages.ERROR_WHILE_RUNNING_WORLD_UPDATES, scenario.name)
