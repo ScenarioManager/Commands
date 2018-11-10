@@ -1,0 +1,10 @@
+name: ScenarioManagerCommands
+author: Caleb Bassham
+version: 0.1.0
+depend: [ScenarioManager]
+main: me.calebbassham.scenariomanager.commands.ScenarioManagerCommandsPlugin
+
+commands:
+  scenariomanager:
+    aliases: [scen, sm]
+    usage: /<command> help
