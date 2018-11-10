@@ -22,19 +22,52 @@ class ScenarioManagerCmd(private val scenarioManager: SimpleScenarioManager, pri
         val success: Boolean = if (args.isEmpty()) {
             listEnabledScenarioDescriptions(sender)
         } else if (args.size == 1 && args[0].equals("list", ignoreCase = true)) {
+            if (!sender.hasPermission("smcommands.list")) {
+                sender.sendMessage(command.permissionMessage)
+                return true
+            }
+
             list(sender)
         } else if (args.size == 1 && args[0].equals("timers", ignoreCase = true)) {
+            if (!sender.hasPermission("smcommands.timers")) {
+                sender.sendMessage(command.permissionMessage)
+                return true
+            }
+
             timers(sender)
         } else if (args.size > 2 && args[0].equals("generate", ignoreCase = true)) {
+            if (!sender.hasPermission("smcommands.generate")) {
+                sender.sendMessage(command.permissionMessage)
+                return true
+            }
             // sm generate <world> <scenario>
             generate(sender, args.drop(1))
         } else if (args.size >= 2 && args[0].equals("enable", ignoreCase = true)) {
+            if (!sender.hasPermission("smcommands.toggle-scenario")) {
+                sender.sendMessage(command.permissionMessage)
+                return true
+            }
             enable(sender, args.drop(1).joinToString(" "), label)
         } else if (args.size >= 2 && args[0].equals("disable", ignoreCase = true)) {
+            if (!sender.hasPermission("smcommands.toggle-scenario")) {
+                sender.sendMessage(command.permissionMessage)
+                return true
+            }
+
             disable(sender, args.drop(1).joinToString(" "))
         } else if (args.size >= 2 && args[0].equals("describe", ignoreCase = true)) {
+            if (!sender.hasPermission("smcommands.describe")) {
+                sender.sendMessage(command.permissionMessage)
+                return true
+            }
+
             describe(sender, args.drop(1).joinToString(" "))
         } else if (args.size >= 1 && args[0].equals("settings", true)) {
+            if (!sender.hasPermission("smcommands.settings")) {
+                sender.sendMessage(command.permissionMessage)
+                return true
+            }
+
             scenarioSettings(sender, args.drop(1))
         } else {
             false
